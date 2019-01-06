@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {API_KEY} from '../api';
+import {API_KEY} from '../../api';
 const ROOT_URL = `https://wordsapiv1.p.mashape.com/words/`;
 
 export const FETCH_WORD = 'FETCH_WORD';
