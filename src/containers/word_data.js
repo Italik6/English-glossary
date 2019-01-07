@@ -6,18 +6,18 @@ class WordData extends Component {
   render() {
     return (
       <div>
-        {this.props.isVisible.isVisible ? (
-          <Alert alertInfo={this.props.isVisible.alertInfo} />
-        ) : null}
-
-        <p>{this.props.word.word}</p>
+        {this.props.wordError.isVisible ? (
+          <Alert alertInfo={this.props.wordError.alertInfo} />
+        ) : (
+          <p>{this.props.wordData.word}</p>
+        )}
       </div>
     );
   }
 }
 
-function mapStateToProps({ word, isVisible, alertInfo }) {
-  return { word, isVisible, alertInfo };
+function mapStateToProps({ wordData, wordError }) {
+  return { wordData, wordError };
 }
 
 export default connect(mapStateToProps)(WordData);

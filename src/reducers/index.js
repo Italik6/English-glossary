@@ -3,8 +3,8 @@ import WordReducer from './reducer_word';
 import AlertReducer from './reducer_alert';
 
 const rootReducer = combineReducers({
-  word: WordReducer,
-  isVisible: AlertReducer
+  wordData: WordReducer,
+  wordError: AlertReducer
 });
 
 export default rootReducer;
