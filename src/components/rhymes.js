@@ -3,10 +3,10 @@ import React from "react";
 export default props => {
   return (
     <div>
-      <p>Definitions:</p>
+      <p>Rhymes:</p>
       <ul>
-        {props.definitions.map(e => (
-          <li key={e.definition}>{e.definition}</li>
+        {props.rhymes.rhymes.all.map(e => (
+          <li key={e}>{e}</li>
         ))}
       </ul>
     </div>

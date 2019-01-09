@@ -18,23 +18,26 @@ class SearchBar extends Component {
     event.preventDefault();
     this.props.fetchWord(this.state.term);
     this.setState({ term: "" });
+    console.log("amma", this.state)
   }
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit} className="input-group">
-        <input
-          placeholder="Search word"
-          value={this.state.term}
-          className="form-control"
-          onChange={this.onInputChange}
-        />
-        <span className="input-group-btn">
-          <button type="submit" className="btn btn-secondary">
-            Search
-          </button>
-        </span>
-      </form>
+      <div>
+        <form onSubmit={this.onFormSubmit} className="input-group">
+          <input
+            placeholder="Search word"
+            value={this.state.term}
+            className="form-control"
+            onChange={this.onInputChange}
+          />
+          <span className="input-group-btn">
+            <button type="submit" className="btn btn-secondary">
+              Search
+            </button>
+          </span>
+        </form>
+      </div>
     );
   }
 }
