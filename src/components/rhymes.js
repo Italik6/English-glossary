@@ -5,8 +5,8 @@ export default props => {
     <div>
       <p>Rhymes:</p>
       <ul>
-        {props.rhymes.rhymes.all.map(e => (
-          <li key={e}>{e}</li>
+        {props.rhymes.rhymes.all.map(rhyme => (
+          <li key={rhyme}>{rhyme}</li>
         ))}
       </ul>
     </div>

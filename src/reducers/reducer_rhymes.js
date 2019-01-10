@@ -5,5 +5,5 @@ export default function(state = {}, action) {
     case FETCH_RHYMES:
       return action.payload;
   }
-  return state;
+  return [];
 }

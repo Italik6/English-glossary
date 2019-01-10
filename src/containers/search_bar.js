@@ -11,15 +11,14 @@ const searchStyle = {
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-
     this.state = { term: "" };
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
-  onInputChange(event) {
+
+  onInputChange = event => {
     this.setState({ term: event.target.value });
   }
-  onFormSubmit(event) {
+
+  onFormSubmit = event => {
     event.preventDefault();
     this.props.fetchWord(this.state.term);
     this.setState({ term: "" });
@@ -27,25 +26,23 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div>
-        <form
-          onSubmit={this.onFormSubmit}
-          className="input-group"
-          style={searchStyle}
-        >
-          <input
-            placeholder="Search word"
-            value={this.state.term}
-            className="form-control"
-            onChange={this.onInputChange}
-          />
-          <span className="input-group-btn">
-            <button type="submit" className="btn btn-secondary">
-              Search
-            </button>
-          </span>
-        </form>
-      </div>
+      <form
+        onSubmit={this.onFormSubmit}
+        className="input-group"
+        style={searchStyle}
+      >
+        <input
+          placeholder="Search word"
+          value={this.state.term}
+          className="form-control"
+          onChange={this.onInputChange}
+        />
+        <span className="input-group-btn">
+          <button type="submit" className="btn btn-secondary">
+            Search
+          </button>
+        </span>
+      </form>
     );
   }
 }

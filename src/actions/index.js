@@ -37,8 +37,12 @@ export function fetchRhymes(word) {
   });
 
   return dispatch => {
-    request.then(({ data }) => {
-      dispatch({ type: FETCH_RHYMES, payload: data });
-    });
+    request
+      .then(({ data }) => {
+        dispatch({ type: FETCH_RHYMES, payload: data });
+      })
+      .catch(error => {
+        alert("Sorry, something went wrong. Please, try again later.");
+      });
   };
 }

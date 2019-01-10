@@ -7,13 +7,7 @@ import { fetchRhymes } from "../actions/index";
 import { bindActionCreators } from "redux";
 
 class WordData extends Component {
-  constructor(props) {
-    super(props);
-
-    this.onRhymesSubmit = this.onRhymesSubmit.bind(this);
-  }
-
-  onRhymesSubmit(event) {
+  onRhymesSubmit = event => {
     event.preventDefault();
     this.props.fetchRhymes(this.props.wordData.word);
   }
@@ -30,7 +24,8 @@ class WordData extends Component {
           {this.props.wordData.length !== 0 ? (
             <Definitions definitions={this.props.wordData.results} />
           ) : null}
-          {this.props.wordData.length !== 0 && this.props.wordRhymes.rhymes === undefined ? (
+          {this.props.wordData.length !== 0 &&
+          this.props.wordRhymes.rhymes === undefined ? (
             <button onClick={this.onRhymesSubmit} className="btn btn-secondary">
               Rhymes
             </button>
