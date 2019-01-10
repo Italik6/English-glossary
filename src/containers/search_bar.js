@@ -3,6 +3,11 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchWord } from "../actions/index";
 
+const searchStyle = {
+  marginTop: "20px",
+  marginBottom: "20px"
+};
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -18,13 +23,16 @@ class SearchBar extends Component {
     event.preventDefault();
     this.props.fetchWord(this.state.term);
     this.setState({ term: "" });
-    console.log("amma", this.state)
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.onFormSubmit} className="input-group">
+        <form
+          onSubmit={this.onFormSubmit}
+          className="input-group"
+          style={searchStyle}
+        >
           <input
             placeholder="Search word"
             value={this.state.term}

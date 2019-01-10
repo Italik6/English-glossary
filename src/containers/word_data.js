@@ -28,15 +28,15 @@ class WordData extends Component {
             <b>{this.props.wordData.word}</b>
           </p>
           {this.props.wordData.length !== 0 ? (
-          <button onClick={this.onRhymesSubmit} className="btn btn-secondary">
-            Rhymes
-          </button>
-             ) : null}
-          {this.props.wordRhymes.rhymes !== undefined ? (
-            <Rhymes rhymes={this.props.wordRhymes}/>
-          ) : null}
-          {this.props.wordData.length !== 0 ? (
             <Definitions definitions={this.props.wordData.results} />
+          ) : null}
+          {this.props.wordData.length !== 0 && this.props.wordRhymes.rhymes === undefined ? (
+            <button onClick={this.onRhymesSubmit} className="btn btn-secondary">
+              Rhymes
+            </button>
+          ) : null}
+          {this.props.wordRhymes.rhymes !== undefined ? (
+            <Rhymes rhymes={this.props.wordRhymes} />
           ) : null}
         </div>
       );
