@@ -8,7 +8,7 @@ Simple English glossary based on Words API.
 
 ## What technologies are used?
 
-ReactJS, Redux-Saga
+ReactJS, Redux
 
 ## What is the ambition of the project?
 
