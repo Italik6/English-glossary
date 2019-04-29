@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Alert from "../components/alert";
+import Loader from "../components/loader";
 import Definitions from "../components/definitions";
 import Rhymes from "../components/rhymes";
 import { fetchRhymes } from "../actions/index";
@@ -10,21 +11,24 @@ class WordData extends Component {
   onRhymesSubmit = event => {
     event.preventDefault();
     this.props.fetchRhymes(this.props.wordData.word);
-  }
+  };
 
   render() {
+    if (this.props.wordData.isFetching) {
+      return <Loader />;
+    }
     if (this.props.wordError.isVisible) {
       return <Alert alertInfo={this.props.wordError.alertInfo} />;
     } else {
       return (
         <div>
           <p>
-            <b>{this.props.wordData.word}</b>
+            <b>{this.props.wordData.wordData.word}</b>
           </p>
-          {this.props.wordData.length !== 0 ? (
-            <Definitions definitions={this.props.wordData.results} />
+          {this.props.wordData.wordData.length !== 0 ? (
+            <Definitions definitions={this.props.wordData.wordData.results} />
           ) : null}
-          {this.props.wordData.length !== 0 &&
+          {this.props.wordData.wordData.length !== 0 &&
           this.props.wordRhymes.rhymes === undefined ? (
             <button onClick={this.onRhymesSubmit} className="btn btn-secondary">
               Rhymes

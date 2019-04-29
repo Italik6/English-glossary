@@ -1,9 +1,16 @@
-import { FETCH_WORD, FETCH_WORD_ERROR } from "../actions/index";
+import { FETCH_WORD, FETCH_WORD_ERROR, FETCHING_WORD } from "../actions/index";
 
-export default function(state = [], action) {
+const initialState = {
+  isFetching: false,
+  wordData: []
+};
+
+export default function(state = initialState, action) {
   switch (action.type) {
+    case FETCHING_WORD:
+      return { isFetching: true };
     case FETCH_WORD:
-      return action.payload;
+      return { isFetching: false, wordData: action.payload };
     case FETCH_WORD_ERROR:
       return state;
   }
