@@ -15,7 +15,7 @@ class WordData extends Component {
 
   render() {
     if (this.props.wordData.isFetching) {
-      return <Loader />;
+      return <Loader loaderInfo="Loading your word..." />;
     }
     if (this.props.wordError.isVisible) {
       return <Alert alertInfo={this.props.wordError.alertInfo} />;
@@ -33,6 +33,9 @@ class WordData extends Component {
             <button onClick={this.onRhymesSubmit} className="btn btn-secondary">
               Rhymes
             </button>
+          ) : null}
+          {this.props.wordRhymes.isFetching ? (
+            <Loader loaderInfo="Loading rhymes..." />
           ) : null}
           {this.props.wordRhymes.rhymes !== undefined ? (
             <Rhymes rhymes={this.props.wordRhymes} />

@@ -1,5 +1,5 @@
 import React from "react";
 
-export default () => {
-    return <div>Loading...</div>;
+export default props => {
+    return <div>{props.loaderInfo}</div>;
 };

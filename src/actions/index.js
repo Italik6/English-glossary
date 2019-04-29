@@ -3,10 +3,11 @@ import { API_KEY } from "../../api";
 
 const ROOT_URL = `https://wordsapiv1.p.mashape.com/words/`;
 
-export const FETCH_WORD = "FETCH_WORD";
 export const FETCHING_WORD = "FETCHING_WORD";
+export const FETCH_WORD = "FETCH_WORD";
 export const FETCH_WORD_ERROR = "FETCH_WORD_ERROR";
 export const FETCH_RHYMES = "FETCH_RHYMES";
+export const FETCHING_RHYMES = "FETCHING_RHYMES";
 
 export function fetchWord(word) {
   const url = ROOT_URL + word;
@@ -39,6 +40,7 @@ export function fetchRhymes(word) {
   });
 
   return dispatch => {
+    dispatch({ type: FETCHING_RHYMES });
     request
       .then(({ data }) => {
         dispatch({ type: FETCH_RHYMES, payload: data });

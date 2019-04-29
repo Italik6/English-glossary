@@ -1,7 +1,14 @@
-import { FETCH_RHYMES } from "../actions/index";
+import { FETCH_RHYMES, FETCHING_RHYMES } from "../actions/index";
 
-export default function(state = {}, action) {
+const initialState = {
+  isFetching: false,
+  wordRhymes: []
+};
+
+export default function(state = initialState, action) {
   switch (action.type) {
+    case FETCHING_RHYMES:
+      return { isFetching: true };
     case FETCH_RHYMES:
       return action.payload;
   }
